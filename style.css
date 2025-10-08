@@ -929,13 +929,14 @@ td.lafadz-col {
 }
 
 .arabic-single-line {
-  text-align: right;        /* 🔹 sudah rata kanan */
-  direction: rtl;           /* arah teks kanan ke kiri */
+  text-align: right;
+  direction: rtl;
   font-family: "Scheherazade New", serif;
-  font-size: 1.25em;
+  font-size: 1.2em;
   line-height: 1.8;
   padding: 8px 0;
-  display: block;
+  display: flex;
+  align-items: center;
   min-height: 50px;
   white-space: normal;      /* boleh turun baris */
   word-wrap: break-word;    /* pecah kata kalau panjang */
@@ -1038,6 +1039,7 @@ td.lafadz-col .arabic-single-line {
   margin: 3px 0;
   opacity: 0.6;
 }
+
 
 
 
