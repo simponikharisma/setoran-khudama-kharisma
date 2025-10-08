@@ -928,17 +928,18 @@ td.lafadz-col {
   opacity: 0.6;
 }
 
-/* Untuk teks Arab biasa (bukan nadhom) */
 .arabic-single-line {
-  text-align: right;
-  direction: rtl;
+  text-align: right;        /* 🔹 sudah rata kanan */
+  direction: rtl;           /* arah teks kanan ke kiri */
   font-family: "Scheherazade New", serif;
   font-size: 1.2em;
   line-height: 1.8;
   padding: 8px 0;
-  display: flex;
-  align-items: center;
+  display: block;
   min-height: 50px;
+  white-space: normal;      /* boleh turun baris */
+  word-wrap: break-word;    /* pecah kata kalau panjang */
+  overflow-wrap: break-word;
 }
 
 /* Kolom lafadz yang diperbaiki */
@@ -1037,6 +1038,7 @@ td.lafadz-col .arabic-single-line {
   margin: 3px 0;
   opacity: 0.6;
 }
+
 
 
 
