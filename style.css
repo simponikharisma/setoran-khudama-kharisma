@@ -988,9 +988,6 @@ td.lafadz-colkitab {
     padding: 6px 8px;
   }
   
-  td.lafadz-colkitab {
-  font-size: 1em;
-  }
 }
 
 /* ==========================
@@ -1039,6 +1036,7 @@ td.lafadz-col .arabic-single-line {
   margin: 3px 0;
   opacity: 0.6;
 }
+
 
 
 
