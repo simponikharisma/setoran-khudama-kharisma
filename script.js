@@ -914,9 +914,10 @@ async function loadPenyimakToEdit(selectedId = null) {
 const KITAB_NADHOM = [
   "الفية (الأول)",    // Alfiyah I
   "الفية (الثاني)",   // Alfiyah II  
-  "العمرطي",                   // Imrithi
-  "جوهر المكنون",             // Jauharul Maknun
-  "تنوير الحجى"               // Tanwirul Hija
+  "العمرطي",       // Imrithi
+  "جوهر المكنون",    // Jauharul Maknun
+  "القواعد الصرفية",	//Qowaidus sorfiyah
+  "تنوير الحجى"    // Tanwirul Hija
 ];
 
 // ===================== FUNGSI PEMISAH NADHOM =====================
@@ -1004,4 +1005,5 @@ function renderLafadz(teksArab, judulKitab) {
   
   // Untuk non-nadhom atau nadhom yang tidak bisa di-split
   return `<div class="arabic-single-line">${teksArab}</div>`;
+
 }
