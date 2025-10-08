@@ -888,10 +888,7 @@ td.lafadz-col {
 }
 
 
-/* === Sembunyikan tombol hapus sementara === */
-.btn-delete {
-  display: none !important;
-}
+
 
 .btn-edit {
   display: none !important;
@@ -1037,4 +1034,5 @@ td.lafadz-col .arabic-single-line {
   margin: 3px 0;
   opacity: 0.6;
 }
+
 
