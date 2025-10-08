@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Favicon utama -->
+  <link rel="icon" type="image/png" href="icons/logo.png">
+  <!-- Font Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+  <title>Setoran Harian - KHUDAMA' KHARISMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📖 Hafalan Khudama' Kharisma</h1>
+      <p>Monitoring Setoran Al-qur'an / Nadhom Harian</p>
+    </header>
+
+    <!-- LOADING -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="spinner"></div>
+      <p>Memuat data...</p>
+    </div>
+
+    <div id="mainContent" style="display:none;">
+      <!-- =================== FORM INPUT =================== -->
+      <div class="input-section">
+        <h3>📝 Input Setoran Santri</h3>
+        <form id="santriForm">
+
+          <!-- Unit -->
+          <div class="form-group">
+            <label for="unit">Unit Ndalem:</label>
+            <select id="unit" required>
+              <option value="">Pilih Unit</option>
+            </select>
+          </div>
+
+          <!-- Penyimak -->
+          <div class="form-group">
+            <label for="penyimak">Penyimak:</label>
+            <select id="penyimak" required>
+              <option value="">Pilih Penyimak</option>
+            </select>
+          </div>
+
+          <!-- Nama -->
+          <div class="form-group">
+            <label for="nama">Nama Santri:</label>
+            <select id="nama" required>
+              <option value="">Pilih Unit dulu</option>
+            </select>
+          </div>
+
+          <!-- Kitab -->
+			<div class="form-group">
+			  <label for="kitab">Kitab Nadhom:</label>
+			  <select id="kitab" class="arabic" required>
+				<option value="">Pilih Kitab</option>
+			  </select>
+			</div>
+
+			<!-- Dari -->
+			<div class="form-group">
+			  <label for="dariAyat">Dari Bait/Ayat:</label>
+			  <select id="dariAyat" class="arabic" required>
+				<option value="">Pilih Kitab dulu</option>
+			  </select>
+			</div>
+
+			<!-- Sampai -->
+			<div class="form-group">
+			  <label for="sampaiAyat">Sampai Bait:</label>
+			  <select id="sampaiAyat" class="arabic" required>
+				<option value="">Pilih Kitab dulu</option>
+			  </select>
+			</div>
+
+
+          <!-- Keterangan -->
+          <div class="form-group">
+            <label for="keterangan">Catatan Penyimak:</label>
+            <textarea id="keterangan" rows="3" placeholder="Catatan khusus, evaluasi, dll..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="btn-text">💾 Simpan Setoran</span>
+            <span class="btn-loading" style="display:none;">Menyimpan...</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- =================== DATA TABEL =================== -->
+      <div class="data-section">
+        <div class="section-header">
+          <h3>📊 Rekap Setoran Harian</h3>
+          <button id="refreshBtn" class="btn-secondary">🔄 Refresh</button>
+        </div>
+
+        <!-- FILTER UNIT -->
+        <div class="unit-filter">
+          <label for="filterUnit">Pilih Unit Ndalem:</label>
+          <select id="filterUnit">
+            <option value="Semua">Semua Unit</option>
+          </select>
+        </div>
+
+        <div class="sort-controls">
+          <label for="sortColumn">Urutkan:</label>
+          <select id="sortColumn">
+            <option value="Nama_Lengkap">Nama</option>
+            <option value="Kelas">Kelas</option>
+            <option value="judul_arab">Kitab</option>
+            <option value="penyimak">Penyimak</option>
+            <option value="created_at">Tanggal</option>
+            <option value="total_ayat">Setor</option>
+            <option value="totalKeseluruhan">Total</option>
+            <option value="keterangan">Ket</option>
+          </select>
+          <button id="btnAsc" class="btn-sort">&#9650;</button>
+          <button id="btnDesc" class="btn-sort">&#9660;</button>
+        </div>
+
+        <div class="table-container">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th data-col="Nama_Lengkap" class="sortable">Nama</th>
+                <th data-col="Kelas" class="sortable">Kelas</th>
+                <th data-col="nama_kitab" class="sortable">Kitab</th>
+                <th data-col="dari_ayat" class="sortable text-center">Dari Bait</th>
+                <th class="lafadz-col">Lafadz</th>
+                <th data-col="sampai_ayat" class="sortable text-center">Sampai Bait</th>
+                <th class="lafadz-col">Lafadz</th>
+                <th data-col="total_ayat" class="sortable text-center">Setor</th>
+                <th data-col="totalKeseluruhan" class="sortable text-center">Total</th>
+                <th data-col="tanggal" class="sortable">Tanggal</th>
+                <th data-col="penyimak" class="sortable">Penyimak</th>
+                <th>Ket</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr><td colspan="14" style="text-align:center;">Memuat data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP EDIT -->
+  <div id="editPopup" class="popup-container" style="display:none;">
+    <div class="popup-card">
+      <div class="popup-header">
+        <h3>✏️ Edit Setoran Santri</h3>
+        <button class="popup-close" id="closeEditPopup">✖</button>
+      </div>
+
+      <form id="editForm">
+        <input type="hidden" id="editId">
+
+        <div class="form-group">
+          <label for="editNama">Nama:</label>
+          <input type="text" id="editNama" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="editKelas">Kelas:</label>
+          <input type="text" id="editKelas" readonly>
+        </div>
+
+        <div class="form-group">
+		  <label for="editKitab">Kitab Nadhom:</label>
+		  <select id="editKitab" class="arabic" required></select>
+		</div>
+
+		<div class="form-group">
+		  <label for="editDariAyat">Dari Bait/Ayat:</label>
+		  <select id="editDariAyat" class="arabic" required></select>
+		</div>
+
+		<div class="form-group">
+		  <label for="editSampaiAyat">Sampai Bait:</label>
+		  <select id="editSampaiAyat" class="arabic" required></select>
+		</div>
+
+
+        <div class="form-group">
+          <label for="editKeterangan">Catatan Penyimak:</label>
+          <textarea id="editKeterangan" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editPenyimak">Penyimak:</label>
+          <select id="editPenyimak" required>
+            <option value="">Pilih Penyimak</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" id="updateBtn">
+          <span class="btn-text">💾 Simpan Perubahan</span>
+          <span class="btn-loading" style="display:none;">Menyimpan...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- POPUP NOTIF -->
+  <div id="notificationPopup" class="notification-popup">
+    <span class="notification-icon">✓</span>
+    <span class="notification-message" id="notificationMessage">Berhasil disimpan!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1040 @@
+/* ==========================
+   STYLING UMUM
+========================== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f7fb;
+  color: #333;
+}
+
+.container {
+  max-width: 100% !important;
+  padding: 12px 18px !important;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+  color: #1a73e8;
+}
+
+header p {
+  color: #666;
+  margin: 0;
+}
+
+.connection-status {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   FORM INPUT - IMPROVED FOR MOBILE
+========================== */
+.input-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.input-section h3 {
+  margin-bottom: 15px;
+  color: #1a73e8;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* Improved input styling for mobile */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 12px;
+  border: 1px solid #cdd9ed;
+  border-radius: 8px;
+  font-size: 16px; /* Prevent zoom on iOS */
+  background: #fff;
+  transition: all 0.3s ease;
+  height: 48px; /* Consistent height */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  height: auto;
+}
+
+/* Select dropdown improvements */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+
+/* ==========================
+   BUTTONS - IMPROVED FOR MOBILE
+========================== */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  min-height: 44px; /* Minimum touch target */
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1765c0;
+}
+
+.btn-secondary {
+  background-color: #f1f3f5;
+  color: #333;
+  margin-left: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-edit {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
+.btn-edit:hover {
+  background-color: #3c8c41;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* ==========================
+   TABEL DATA
+========================== */
+.table-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th:first-child, td:first-child {
+  text-align: center;
+  width: 50px;
+}
+
+td {
+  vertical-align: middle;
+}
+
+/* ==========================
+   SECTION HEADER
+========================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ==========================
+   LOADING SCREEN
+========================== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================
+   POPUP EDIT
+========================== */
+.popup-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  padding: 20px;
+  width: 360px;
+  max-width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: fadeIn 0.25s ease;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  color: #1a73e8;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #888;
+  min-height: auto;
+  padding: 5px;
+}
+
+.popup-close:hover {
+  color: #e53935;
+}
+
+@keyframes fadeIn {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+
+/* ==========================
+   TAMPILAN PER UNIT (GAYA EXCEL)
+========================== */
+.unit-section {
+  margin-top: 28px;
+  border: 2px solid #1a73e8;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Header nama unit */
+.unit-header {
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-bottom: 2px solid #1a73e8;
+}
+
+/* Scroll horizontal */
+.unit-section .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ======== TABEL GAYA EXCEL ======== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 950px;
+  border: 1px solid #1a73e8;
+}
+
+/* Header tabel elegan */
+.data-table thead tr {
+  background: #d9e8ff;
+  color: #0d2b5e;
+}
+
+.data-table th,
+.data-table td {
+  padding: 8px 6px;
+  border: 1px solid #1a73e8;
+  vertical-align: middle;
+}
+
+.data-table td:not(.arabic),
+.data-table th:not(.arabic) {
+  text-align: center;
+}
+
+.data-table td.arabic {
+  text-align: right !important;
+  direction: rtl;
+  font-family: "Scheherazade New", serif;
+}
+
+
+/* === Sticky Kolom Nama Santri === */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  max-width: 180px; /* 🔹 ubah sesuai panjang nama santri */
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.08); /* bayangan lembut kanan */
+  border-right: 1.4px solid #1a73e8;
+  background-color: #fff; /* agar tidak transparan di atas kolom lain */
+}
+
+/* Header kolom Nama Santri */
+.data-table th:nth-child(2) {
+  background: #d9e8ff !important;
+  text-align: center !important;
+  color: #0d2b5e;
+  font-weight: 600;
+  z-index: 4; /* lebih tinggi dari sel data */
+}
+
+/* Isi kolom Nama Santri */
+.data-table td:nth-child(2) {
+  text-align: left !important;
+  background-color: #fff;
+}
+
+.data-table td:nth-child(12) {
+  text-align: left !important;
+}
+
+/* === Warna baris terbaru (update hijau lembut) === */
+.data-table tr[style*="background-color:#e8f5e9;"] td {
+  background-color: #e8f5e9 !important;
+}
+
+/* Sticky kolom Nama juga ikut warna hijau */
+.data-table tr[style*="background-color:#e8f5e9;"] td:nth-child(2) {
+  background-color: #e8f5e9 !important;
+}
+
+/* === Hover efek biru pastel untuk semua baris === */
+.data-table tbody tr:hover td {
+  background-color: #edf5ff !important; /* biru pastel lembut */
+}
+
+/* Pastikan sticky kolom ikut efek hover */
+.data-table tbody tr:hover td:nth-child(2) {
+  background-color: #edf5ff !important;
+}
+
+/* Garis pembatas kolom Nama */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  border-right: 1.4px solid #1a73e8;
+}
+
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  border-right: 1.4px solid #1a73e8;
+}
+
+
+/* Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #a6d1ff;
+  border-radius: 10px;
+}
+
+.section-header select {
+  padding: 6px 8px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  margin-left: 6px;
+}
+
+.section-header label {
+  font-weight: 600;
+  color: #333;
+  margin-right: 6px;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-controls select {
+  padding: 6px 8px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.btn-sort {
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-height: auto;
+}
+
+.btn-sort:hover {
+  background-color: #1765c0;
+}
+
+/* ==========================
+   FOCUS WARNA BIRU FORM - IMPROVED
+========================== */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* ===================== NOTIFICATION POPUP ===================== */
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(150%);
+  transition: transform 0.3s ease-in-out;
+  max-width: 300px;
+}
+
+.notification-popup.show {
+  transform: translateX(0);
+}
+
+.notification-popup.success {
+  background: #4CAF50;
+}
+
+.notification-popup.error {
+  background: #f44336;
+}
+
+.notification-icon {
+  font-size: 18px;
+}
+
+.notification-message {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* ==========================
+   RESPONSIVE MOBILE OPTIMIZATION
+========================== */
+
+/* Base font size adjustment for mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 12px;
+  }
+  
+  /* Header adjustments */
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Form improvements */
+  .input-section {
+    padding: 18px;
+    border-radius: 10px;
+  }
+  
+  .input-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Larger inputs for mobile */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    padding: 16px 14px;
+    height: 52px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  
+  textarea {
+    padding: 14px;
+    min-height: 120px;
+    font-size: 16px;
+  }
+  
+  /* Better focus for mobile */
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="date"]:focus,
+  select:focus,
+  textarea:focus {
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Form group spacing for mobile */
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Select dropdown larger arrow for mobile */
+  select {
+    background-size: 14px;
+    background-position: right 16px center;
+    padding-right: 45px;
+  }
+  
+  /* Button improvements for mobile */
+  button {
+    padding: 14px 18px;
+    min-height: 48px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 12px 14px;
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+  
+  /* Table improvements */
+  .table-container {
+    padding: 10px;
+  }
+  
+  th, td {
+    padding: 12px 6px;
+    font-size: 0.9rem;
+  }
+  
+  /* Unit section improvements */
+  .unit-section {
+    margin-top: 20px;
+  }
+  
+  .unit-header {
+    padding: 12px 10px;
+    font-size: 1rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 10px 5px;
+  }
+  
+  .data-table {
+    min-width: 800px;
+  }
+  
+  /* Section header improvements */
+  .section-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .sort-controls {
+    justify-content: space-between;
+  }
+  
+  .sort-controls select {
+    padding: 8px 10px;
+    font-size: 1rem;
+  }
+  
+  /* Popup improvements */
+  .popup-card {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .container {
+    padding: 8px;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .input-section, .table-container {
+    border-radius: 8px;
+  }
+  
+  /* Stack buttons vertically on very small screens */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .button-group button {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+  
+  /* Form adjustments for very small screens */
+  .input-section {
+    padding: 15px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    padding: 14px 12px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  
+  textarea {
+    padding: 12px;
+    min-height: 100px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Improve table readability */
+  .data-table {
+    min-width: 700px;
+  }
+  
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) {
+    max-width: 140px;
+  }
+  
+  /* Notification popup adjustment */
+  .notification-popup {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+/* Touch-friendly improvements for all mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap targets */
+  button, 
+  .btn-edit, 
+  .btn-delete,
+  select,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+  }
+  
+  /* Improve feedback for touch */
+  button:active,
+  .btn-edit:active,
+  .btn-delete:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+  
+  /* Prevent text selection on interactive elements */
+  button, select {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  
+  /* Active state feedback for inputs */
+  input[type="text"]:active,
+  input[type="number"]:active,
+  input[type="date"]:active,
+  select:active,
+  textarea:active {
+    background-color: #f8f9fa;
+    border-color: #1a73e8;
+  }
+}
+
+/* Arabic text optimization for mobile */
+@media (max-width: 768px) {
+  .arabic,
+  option.arabic,
+  #editDariAyat option,
+  #editSampaiAyat option,
+  #dariAyat option,
+  #sampaiAyat option {
+    font-size: 1.1em;
+    line-height: 1.8;
+  }
+}
+
+/* ==========================
+   PLACEHOLDER STYLING
+========================== */
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+}
+
+/* ==========================
+   VALIDATION STATES
+========================== */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: #ff4444;
+}
+
+input:valid,
+select:valid,
+textarea:valid {
+  border-color: #00C851;
+}
+
+/* ==========================
+   DISABLED STATE
+========================== */
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsif untuk popup di mobile kecil */
+@media (max-width: 500px) {
+  .popup-card {
+    width: 92%;
+    padding: 15px;
+    max-height: 90vh;
+  }
+}
+
+/* ==========================
+   DROPDOWN RTL (ARAB)
+   Arrow di kiri untuk tampilan alami
+========================== */
+select.arabic {
+  direction: rtl; /* teks dari kanan ke kiri */
+  text-align: right;
+  font-family: "Scheherazade New", serif;
+  font-size: 1.15em;
+  color: #111;
+  border-radius: 6px;
+  border: 1px solid #c8d8f1;
+  background-color: #fff;
+  padding: 6px 28px 6px 10px; /* beri ruang kanan untuk teks, kiri untuk arrow */
+  appearance: none; /* hilangkan default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: left 10px center; /* posisikan arrow di kiri */
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23111' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-size: 16px;
+}
+
+/* Hover dan fokus agar tetap modern */
+select.arabic:hover,
+select.arabic:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 4px rgba(26, 115, 232, 0.4);
+  outline: none;
+}
+
+/* Opsi dropdown Arab */
+select.arabic option {
+  direction: rtl;
+  text-align: right;
+  font-family: "Scheherazade New", serif;
+  font-size: 1.1em;
+  background-color: #fff;
+}
+
+/* ==========================
+   Kolom khusus Lafadz Arab
+========================== */
+
+
+td.lafadz-col {
+  min-height: 48px; /* biar teks tidak nempel ke atas */
+}
+
+
+/* === Sembunyikan tombol hapus sementara === */
+.btn-delete {
+  display: none !important;
+}
+
+.btn-edit {
+  display: none !important;
+}
+
+/* ==========================
+   KOLOM LAFADZ NADHOM - 2 BARIS DENGAN GARIS
+========================== */
+
+/* Container untuk lafadz nadhom 2 baris */
+.nadhom-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 70px;
+  justify-content: center;
+}
+
+/* Baris pertama dan kedua nadhom */
+.nadhom-line {
+  text-align: right;
+  direction: rtl;
+  font-family: "Scheherazade New", serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding: 2px 0;
+}
+
+/* Garis pemisah antara dua baris nadhom */
+.nadhom-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, #1a73e8 50%, transparent 90%);
+  margin: 3px 0;
+  opacity: 0.6;
+}
+
+/* Untuk teks Arab biasa (bukan nadhom) */
+.arabic-single-line {
+  text-align: right;
+  direction: rtl;
+  font-family: "Scheherazade New", serif;
+  font-size: 1.2em;
+  line-height: 1.8;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
+
+/* Kolom lafadz yang diperbaiki */
+
+td.lafadz-col {
+  min-width: 220px;
+  max-width: 300px;
+  width: 250px;
+  direction: rtl;
+  text-align: right;
+  vertical-align: middle;
+  font-family: "Scheherazade New", serif;  
+  line-height: 1.7;
+  white-space: nowrap;         /* teks tetap 1 baris, tidak turun */
+  overflow: hidden;
+  text-overflow: ellipsis;     /* jika terlalu panjang, beri tanda ... */
+  padding: 10px 12px;
+}
+
+td.lafadz-colkitab {
+  font-size: 1.2em;
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .nadhom-container {
+    min-height: 60px;
+    gap: 3px;
+  }
+  
+  .nadhom-line {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  .arabic-single-line {
+    font-size: 1em;
+    min-height: 45px;
+  }
+  
+  th.lafadz-col,
+  td.lafadz-col {
+    min-width: 160px;
+    max-width: 220px;
+    padding: 6px 8px;
+  }
+  
+  td.lafadz-colkitab {
+  font-size: 1em;
+  }
+}
+
+/* ==========================
+   PENYESUAIAN UKURAN ARAB YANG KONSISTEN
+========================== */
+
+/* Kolom kitab - Arab single line */
+td.arabic.lafadz-col,
+.arabic-single-line {
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  font-family: "Scheherazade New", serif !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Kolom lafadz - untuk single line */
+td.lafadz-col .arabic-single-line {
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  font-family: "Scheherazade New", serif !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Kolom lafadz - untuk nadhom 2 baris */
+.nadhom-line {
+  font-size: 1.2em !important;
+  line-height: 1.6 !important;
+  font-family: "Scheherazade New", serif !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Container nadhom */
+.nadhom-container {
+  min-height: 70px;
+  gap: 4px;
+  justify-content: center;
+}
+
+/* Garis pemisah nadhom */
+.nadhom-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, #1a73e8 50%, transparent 90%);
+  margin: 3px 0;
+  opacity: 0.6;
+}
+
