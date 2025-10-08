@@ -872,7 +872,7 @@ async function loadPenyimak() {
   data.forEach(p => {
     const opt = document.createElement("option");
     opt.value = p.id_penyimak;
-    opt.textContent = `${p.nama_penyimak} (${p.unit_ndalem || "-"})`;
+    opt.textContent = p.nama_penyimak;   // 🔹 hanya nama
     penyimakSelect.appendChild(opt);
   });
 }
@@ -904,11 +904,12 @@ async function loadPenyimakToEdit(selectedId = null) {
   data.forEach(p => {
     const opt = document.createElement("option");
     opt.value = p.id_penyimak;
-    opt.textContent = `${p.nama_penyimak} (${p.unit_ndalem || "-"})`;
+    opt.textContent = p.nama_penyimak;   // 🔹 hanya nama
     if (selectedId && p.id_penyimak === selectedId) opt.selected = true;
     select.appendChild(opt);
   });
 }
+
 
 // ===================== DAFTAR KITAB NADHOM =====================
 const KITAB_NADHOM = [
@@ -1007,3 +1008,4 @@ function renderLafadz(teksArab, judulKitab) {
   return `<div class="arabic-single-line">${teksArab}</div>`;
 
 }
+
