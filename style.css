@@ -962,6 +962,8 @@ td.lafadz-col {
 
 td.lafadz-colkitab {
   font-size: 1.2em;
+  min-width: 100px;
+  max-width: 200px;
 }
 
 /* Responsif untuk mobile */
@@ -1036,6 +1038,7 @@ td.lafadz-col .arabic-single-line {
   margin: 3px 0;
   opacity: 0.6;
 }
+
 
 
 
